@@ -3,18 +3,18 @@ body{
     display:flex;
     justify-content: center;
     color: white;
-
 }
 
 button{
-    width:80px;
-    height:80px;
+    width:100px;
+    height:100px;
   
 }
 
+
+
 .mainContainer{
-    border:2px red solid;
-    width:400px;
+    width:410px;
     display:flex;
     justify-content: center;
     flex-direction: column;
@@ -22,10 +22,19 @@ button{
 }
 
 .calcFunctions, .calcNums{
-    border: 1px white solid;
+
     display:flex;
     justify-content: center;
     flex-direction:row ;
     flex-wrap: wrap;
+    gap:3px;
     
+}
+.calcFunctions{
+    padding-bottom: 20px;
+}
+
+.display{
+    display:flex;
+    justify-content: center;
 }
