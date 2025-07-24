@@ -1,13 +1,18 @@
-let operator = undefined;
-let firstNumber = undefined;
-let secondNumber = undefined;
-
+let operator = "";
+let firstNumber = "";
+let secondNumber = "";
+const NUMBERS ="1234567890"; 
 
 let buttons = document.querySelectorAll("button");
 
 buttons.forEach((but)=>{
     but.addEventListener("click", ()=>{
         console.log(but.textContent);
+        
+        firstNumber += but.textContent
+        console.log(firstNumber)
+        
+        
     })
 });
 
