@@ -7,10 +7,12 @@ let buttons = document.querySelectorAll("button");
 
 buttons.forEach((but)=>{
     but.addEventListener("click", ()=>{
-        console.log(but.textContent);
         
+        if(operator == "" && !isNaN(but.textContent)){
         firstNumber += but.textContent
         console.log(firstNumber)
+        
+        }
         
         
     })
