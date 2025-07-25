@@ -11,12 +11,19 @@ buttons.forEach((but)=>{
         if(operator == "" && !isNaN(but.textContent)){
         firstNumber += but.textContent
         console.log(firstNumber)
-        
         }
         
+        //clears calculator
+        if(but.textContent == "AC"){
+            firstNumber = "";
+            operator = "";
+            secondNumber = "";
+        }
         
     })
 });
+
+
 
 function addition(a,b){
     return (a+b)
