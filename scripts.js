@@ -1,12 +1,12 @@
 let operator = "";
 let firstNumber = "";
 let secondNumber = "";
-let result = "";
 const NUMBERS ="1234567890";
 const OPERATORS = "+-*/"; 
 const EQUALS = "="
 
 let buttons = document.querySelectorAll("button");
+let display = document.querySelector("p");
 
 buttons.forEach((but)=>{
     but.addEventListener("click", ()=>{
@@ -52,27 +52,31 @@ buttons.forEach((but)=>{
 
         //clears calculator
         if(but.textContent == "AC"){
-            firstNumber = "";
-            operator = "";
-            secondNumber = "";
-            console.log("Cleared");
+            clearCal()
         }
+    
+        //displays result over equation
+        if(!EQUALS.includes(but.textContent)){
+        display.textContent = firstNumber + " " + operator + " " + secondNumber
+        }
+
         
+    
     })
 });
 
 
 
 function addition(a,b){
-    console.log(parseFloat(a)+parseFloat(b))
+    showResult(parseFloat(a)+parseFloat(b))
 };
 
 function subtraction(a,b){
-    console.log(parseFloat(a)-parseFloat(b))
+    showResult(parseFloat(a)-parseFloat(b))
 };
 
 function multiply(a,b){
-    console.log(parseFloat(a)*parseFloat(b))
+    showResult(parseFloat(a)*parseFloat(b))
 };
 
 function divide(a,b){
@@ -82,4 +86,17 @@ function divide(a,b){
         console.log(parseFloat(a)/parseFloat(b))
     }
     
+}
+
+function clearCal(){
+    firstNumber = "";
+    operator = "";
+    secondNumber = "";
+    console.log("Cleared");
+}
+
+
+//displays result on display, has preference over equation on display
+function showResult(result){
+    display.textContent = result
 }
