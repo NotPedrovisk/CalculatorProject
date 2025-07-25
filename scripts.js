@@ -1,8 +1,10 @@
 let operator = "";
 let firstNumber = "";
 let secondNumber = "";
+let result = "";
 const NUMBERS ="1234567890";
 const OPERATORS = "+-*/"; 
+const EQUALS = "="
 
 let buttons = document.querySelectorAll("button");
 
@@ -27,6 +29,27 @@ buttons.forEach((but)=>{
             console.log(secondNumber)
         };
 
+
+        //decides what function to use when equal sign is pressed depending on selected operator
+        if(EQUALS.includes(but.textContent)){
+            switch(operator){
+                case "+":
+                    addition(firstNumber, secondNumber);
+                    break;
+                case "-":
+                    subtraction(firstNumber, secondNumber);
+                    break;
+                case "*":
+                    multiply(firstNumber, secondNumber);
+                    break;
+                case "/":
+                    divide(firstNumber, secondNumber);
+                    break;
+            }
+        }
+
+
+
         //clears calculator
         if(but.textContent == "AC"){
             firstNumber = "";
@@ -41,22 +64,22 @@ buttons.forEach((but)=>{
 
 
 function addition(a,b){
-    return (a+b)
+    console.log(parseFloat(a)+parseFloat(b))
 };
 
 function subtraction(a,b){
-    return (a-b)
+    console.log(parseFloat(a)-parseFloat(b))
 };
 
 function multiply(a,b){
-    return (a*b)
+    console.log(parseFloat(a)*parseFloat(b))
 };
 
 function divide(a,b){
     if(b == 0){
         console.log("amongus sus");
     }else{
-        return (a/b)
+        console.log(parseFloat(a)/parseFloat(b))
     }
     
 }
