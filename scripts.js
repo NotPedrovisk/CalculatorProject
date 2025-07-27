@@ -15,19 +15,16 @@ buttons.forEach((but)=>{
         //prompts user to input first number
         if(operator === "" && NUMBERS.includes(but.textContent)){
         firstNumber += but.textContent;
-        console.log(firstNumber);
         };
     
         //checks if the button pressed is an operator
         if(OPERATORS.includes(but.textContent)) {
             operator = but.textContent;
-            console.log(operator);
         };
 
         //lets user input second number after operator is selected
         if(operator !="" && NUMBERS.includes(but.textContent)){
             secondNumber += but.textContent;
-            console.log(secondNumber)
         };
 
 
@@ -52,20 +49,7 @@ buttons.forEach((but)=>{
 
         //decides what function to use when equal sign is pressed depending on selected operator
         if(EQUALS.includes(but.textContent)){
-            switch(operator){
-                case "+":
-                    addition(firstNumber, secondNumber);
-                    break;
-                case "-":
-                    subtraction(firstNumber, secondNumber);
-                    break;
-                case "*":
-                    multiply(firstNumber, secondNumber);
-                    break;
-                case "/":
-                    divide(firstNumber, secondNumber);
-                    break;
-            }
+            operate()
         }
 
 
@@ -106,6 +90,23 @@ function divide(a,b){
         showResult(parseFloat(a)/parseFloat(b))
     }
     
+}
+
+function operate(){
+    switch(operator){
+                case "+":
+                    addition(firstNumber, secondNumber);
+                    break;
+                case "-":
+                    subtraction(firstNumber, secondNumber);
+                    break;
+                case "*":
+                    multiply(firstNumber, secondNumber);
+                    break;
+                case "/":
+                    divide(firstNumber, secondNumber);
+                    break;
+            }
 }
 
 function clearCal(){
