@@ -19,7 +19,10 @@ buttons.forEach((but)=>{
     
         //checks if the button pressed is an operator
         if(OPERATORS.includes(but.textContent)) {
-            operator = but.textContent;
+            if(secondNumber == ""){
+                operator = but.textContent;
+            }
+            
             //if equation is already done and user presses operator again, will run operation, and use new operator with result
             //of last operation for new calculatior
             if(secondNumber != ""){
@@ -56,7 +59,10 @@ buttons.forEach((but)=>{
 
         //decides what function to use when equal sign is pressed depending on selected operator
         if(EQUALS.includes(but.textContent)){
-            operate()
+            if((firstNumber !="")&&(operator !="")&&(secondNumber !="")){
+                operate()
+            }
+            
         }
 
 
