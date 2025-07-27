@@ -39,6 +39,7 @@ buttons.forEach((but)=>{
                 total = "";
                 operator = but.textContent;
             }
+            //clear calc if another number is inputed after result
             if(NUMBERS.includes(but.textContent)){
                 clearCal();
                 total = "";
