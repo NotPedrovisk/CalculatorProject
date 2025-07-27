@@ -1,9 +1,10 @@
 let operator = "";
 let firstNumber = "";
 let secondNumber = "";
+let total ="";
 const NUMBERS ="1234567890";
 const OPERATORS = "+-*/"; 
-const EQUALS = "="
+const EQUALS = "=";
 
 let buttons = document.querySelectorAll("button");
 let display = document.querySelector("p");
@@ -12,7 +13,7 @@ buttons.forEach((but)=>{
     but.addEventListener("click", ()=>{
     
         //prompts user to input first number
-        if(operator === "" && !isNaN(but.textContent)){
+        if(operator === "" && NUMBERS.includes(but.textContent)){
         firstNumber += but.textContent;
         console.log(firstNumber);
         };
@@ -24,10 +25,28 @@ buttons.forEach((but)=>{
         };
 
         //lets user input second number after operator is selected
-        if(operator !="" && !isNaN(but.textContent)){
+        if(operator !="" && NUMBERS.includes(but.textContent)){
             secondNumber += but.textContent;
             console.log(secondNumber)
         };
+
+
+        //lets user continue using result of last operation as the first number
+        if(total !=""){
+            if(OPERATORS.includes(but.textContent)){
+                clearCal();
+                firstNumber = total;
+                total = "";
+                operator = but.textContent;
+            }
+            if(NUMBERS.includes(but.textContent)){
+                clearCal();
+                total = "";
+                firstNumber += but.textContent;
+            }
+        }
+
+    
 
 
         //decides what function to use when equal sign is pressed depending on selected operator
@@ -81,9 +100,9 @@ function multiply(a,b){
 
 function divide(a,b){
     if(b == 0){
-        console.log("amongus sus");
+        showResult("amongus sus");
     }else{
-        console.log(parseFloat(a)/parseFloat(b))
+        showResult(parseFloat(a)/parseFloat(b))
     }
     
 }
@@ -98,5 +117,6 @@ function clearCal(){
 
 //displays result on display, has preference over equation on display
 function showResult(result){
+    total = result
     display.textContent = result
 }
