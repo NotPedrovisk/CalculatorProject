@@ -28,7 +28,10 @@ footer, a{
     animation-iteration-count: infinite;
 }
 
-
+h1{
+    font-family:monospace;
+    font-size: 4em;
+}
 
 
 .mainContainer{
